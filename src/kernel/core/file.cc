@@ -28,7 +28,7 @@ File::File(char* n,u8 t){
 	name[strlen(n)]=0;
 	
 	checkName();
-	master=arch.pcurrent;	//à la creation, le maitre est le processus courant
+	master=arch.pcurrent;	//ï¿½ la creation, le maitre est le processus courant
 	inode=inode_system;
 	inode_system++;
 	size=0;
@@ -47,11 +47,11 @@ File::~File(){
 	
 	//on modifie la liste des frere
 	
-	if (prec==NULL){
+	if (prec==NULL&&next!=NULL){
 		parent->setChild(next);
 		next->setPrec(NULL);
 	}
-	else if (next==NULL){
+	else if (next==NULL&&prec!=NULL){
 		prec->setNext(NULL);
 	}
 	else if (next==NULL && prec==NULL){
